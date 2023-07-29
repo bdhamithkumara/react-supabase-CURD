@@ -25,59 +25,6 @@ import Curd from './Curd';
 
 
 function App() {
-  const [detail,setDetail] = useState({
-    name : '',
-  })
-
-  const [status , setStatus] = useState('damith')
-
-  const [ selectID , getSelectID] = useState(0)
-
- // const [result, reexecute] = useRealtime('details',{filter});
-
- // const { data, fetching, error } = result
-
- // if (fetching) return <p>Loading...</p>
- // if (error) return <p>Oh no... {error.message}</p>
- // if (error) console.log(error)
-  
-  const handleSave = async() => {
-    await supabase.from('details')
-    .insert(detail)
-  }
-
-  const handleUpdate = async() => {
-    
-  await supabase
-    .from('details')
-    .update(detail)
-    .eq('id', selectID )
-    .select()
-
-  }
-
-  const handleDelete = async(deatis_id) => {
-    await supabase
-    .from('details')
-    .delete()
-    .eq('id', deatis_id)
-  }
-
-  const handleFilter = () => {
-
-  }
-
-
-  const [username, setUsername] = useState('damith');
-  const filter = useFilter(
-    (query) => query.eq('name', username),
-  )
-
-  const [results, reexecute] = useSelect('details', {
-    filter
-  })
-
-  const { data, fetching, error } = results 
 
   return (
     <>
